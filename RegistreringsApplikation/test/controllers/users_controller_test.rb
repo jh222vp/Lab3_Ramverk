@@ -1,9 +1,10 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
 
+  
+  test "GET /users should list all users" do
+    assert_routing '/users',{controller: "users", action: "index"}
+    get :index
+  end
 end
