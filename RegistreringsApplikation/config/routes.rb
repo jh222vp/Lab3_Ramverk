@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   #get 'users/new'
-  root to: 'users#index'
+  #root to: 'users#index'
+  root :to => redirect('/login')
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+
   #get 'users/' => 'users#index'
-  resources :users
+  #resources :users
 
   
   
