@@ -1,18 +1,20 @@
 class SessionController < ApplicationController
   
-   def new
-    # loads the login-form from the view sessions/new.html.erb
-   end
-  
-  def create
-    
-    #user = User.find_by(name: params[:session][:name])
-    #if user && user.authenticate(params[:session][:password])
-    #  # call helper method log_in (se helpers/seesionhelper)
-    #  log_in user
-    #end
-    flash.now[:danger] = 'Du klickade på knappen'
+  def new
+    @user = User.new
   end
-  
 
+  def create
+    @user = User.find_by(name: params[:session][:name])
+    if @user && @user.authenticate(params[:session][:password])
+      log_in @user
+      redirect_to @user
+      # Log the user in and redirect to the user's show page.
+    else
+      # Create an error message.
+      @user = User.new if @user.nil?
+      flash[:danger] = 'Invalid email/password combination' # Not quite right!
+      render 'new'
+      end
+   end
 end

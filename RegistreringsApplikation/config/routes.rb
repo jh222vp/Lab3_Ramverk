@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   root :to => redirect('/login')
   get '/login' => 'session#new'
   post '/login' => 'session#create'
-
-  #get 'users/' => 'users#index'
-  #resources :users
+  
+  resources :users
 
   
   
