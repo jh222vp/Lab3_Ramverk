@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root :to => redirect('/login')
   get '/login' => 'session#new'
   post '/login' => 'session#create'
+  get '/logout'  => 'session#destroy'
+
   
   resources :users
 
