@@ -1,1 +1,7 @@
-<%= @user.name %>, <%= @user.key %>
+<%= @user.name %>, API KEY = <%= @user.key %>
+
+      
+      <% if is_logged_in? %>
+      <div class="alert alert-success" role = "alert">Logged in as <%= current_user.name %> </div>
+      <%= link_to "Delete API Key", @user, method: :delete %>
+      <% end %>

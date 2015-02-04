@@ -22,6 +22,10 @@ class SessionController < ApplicationController
     log_out
     redirect_to root_url
   end
+ 
+  def clearAPI
+    
+  end
   
   
 end
