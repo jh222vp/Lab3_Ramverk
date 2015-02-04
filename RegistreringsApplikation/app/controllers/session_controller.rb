@@ -1,6 +1,9 @@
 class SessionController < ApplicationController
-
+  
   def new
+    if is_logged_in?
+      redirect_to user_path(current_user)
+   end
     @user = User.new
   end
 

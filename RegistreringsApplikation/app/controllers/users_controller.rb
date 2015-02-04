@@ -4,11 +4,12 @@ class UsersController < ApplicationController
     before_action :correct_user, only: [:show]
   
   def index
-
+    
   end
   
   def show
     @user = User.find(params[:id])
+    @users = User.all
   end
   
  def new

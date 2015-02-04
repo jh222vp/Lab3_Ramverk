@@ -1,4 +1,11 @@
+<% if @user.admin %>
+  <% @users.each do |i| %>
+<li><%= i.name %> | <%= i.key %><br><div class="alert alert-danger" role = "alert"><%= link_to "Delete API Key", i , method: :delete %></div></li>
+  <% end %>
+
+<% else %>
 <%= @user.name %>, API KEY = <%= @user.key %>
+
 
       
 <% if is_logged_in? %>
@@ -7,4 +14,5 @@
       <% else %> 
         <div class="alert alert-info"role = "alert"> <%= link_to "Generate API Key", @user, method: :post %></div>
       <% end %>
+<% end %>
 <% end %>

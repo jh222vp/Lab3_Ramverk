@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20150128103509) do
   create_table "users", force: true do |t|
     t.string   "name",            limit: 25
     t.string   "key"
+    t.boolean  "admin",                      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
