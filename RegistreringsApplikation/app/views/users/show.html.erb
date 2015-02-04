@@ -1,7 +1,7 @@
 <% if @user.admin %>
   <% @users.each do |i| %>
 <% if i.admin %>
-
+<!--Nothing happens here if the user is Admin. Dont need to see any info about the user Admin-->
 <% else %>
 <li><%= i.name %> | <%= i.key %><br><div class="alert alert-danger" role = "alert"><%= link_to "Delete API Key", i , method: :delete %></div></li>
 <% end %>
