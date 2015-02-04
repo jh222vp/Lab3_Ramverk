@@ -26,16 +26,22 @@ class UsersController < ApplicationController
     end
   end
   
-  def destroyAPI
+  #Destorys the API key
+  def destroy
     @user = User.find(params[:id])
     @user.update_attribute(:key, nil)
     redirect_to @user
   end
   
+  #Generates a new API key
   def generate_API
     @user = User.find(params[:id])
-    @user.key = SecureRandom.hex
-    redirect_to @user
+    
+    if  @user.update_attribute(:key, SecureRandom.hex) 
+      redirect_to @user
+    else
+      flash.now[:danger] = 'Du har redan en API Nyckel' # Not quite right!
+    end
   end
   
   def user_params
