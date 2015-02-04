@@ -1,6 +1,10 @@
 <% if @user.admin %>
   <% @users.each do |i| %>
+<% if i.admin %>
+
+<% else %>
 <li><%= i.name %> | <%= i.key %><br><div class="alert alert-danger" role = "alert"><%= link_to "Delete API Key", i , method: :delete %></div></li>
+<% end %>
   <% end %>
 
 <% else %>
