@@ -16,10 +16,9 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(user_params)    # Not the final implementation!
+    @user = User.new(user_params)
     @user.key = SecureRandom.hex
     if @user.save
-      
       flash[:success] = "Welcome to Webbteknik2!"
       redirect_to @user
     else
@@ -27,14 +26,16 @@ class UsersController < ApplicationController
     end
   end
   
-  def destroy
+  def destroyAPI
     @user = User.find(params[:id])
     @user.update_attribute(:key, nil)
     redirect_to @user
   end
   
-  def generate_key
-    
+  def generate_API
+    @user = User.find(params[:id])
+    @user.key = SecureRandom.hex
+    redirect_to @user
   end
   
   def user_params

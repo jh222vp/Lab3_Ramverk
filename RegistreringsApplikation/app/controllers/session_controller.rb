@@ -21,11 +21,5 @@ class SessionController < ApplicationController
   def destroy
     log_out
     redirect_to root_url
-  end
- 
-  def clearAPI
-    
-  end
-  
-  
+  end  
 end

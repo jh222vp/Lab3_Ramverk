@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   get '/logout'  => 'session#destroy'
-  get '/delete' => 'users#destroy'
+  get '/delete' => 'users#destroyAPI'
+  post '/users/:id' => 'users#generate_API'
 
   
   resources :users
