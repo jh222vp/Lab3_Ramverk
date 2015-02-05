@@ -1,6 +1,9 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
-
+<div class = "panel panel-info">
+  <div class = "panel-heading">
+    <h3>Please login below with your username and password.</h3>
+  </div>
+  <div class = "panel-body">
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
@@ -13,8 +16,12 @@
  <br>
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
-    <div class = "col-md-6 col-md-offset-3">
-    <%= link_to "Register", new_user_path, class: "btn btn-success" %>
+    <div class = "col-md-6 col-md-offset-3">      
+        </div>
       </div>
-  </div>
+    </div>
 </div>
+        <div class = "panel-footer">
+          <strong>Already a member?</strong>
+      <%= link_to "Register", new_user_path, class: "btn btn-success" %>
+      </div>

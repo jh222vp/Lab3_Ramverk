@@ -1,22 +1,39 @@
 <% if @user.admin %>
-  <% @users.each do |i| %>
-<% if i.admin %>
+
+<div class = "col-md-5">
+<div class = "panel panel-info">
+  <div class = "panel-heading">
+    <h3>Kontoinformation</h3>
+  </div>
+  <div class = "panel-body">
+    <% @users.each do |user| %>
+    <% if user.admin %>
 <!--Nothing happens here if the user is Admin. Dont need to see any info about the user Admin-->
 <% else %>
-<li><%= i.name %> | <%= i.key %><br><div class="alert alert-danger" role = "alert"><%= link_to "Delete API Key", i , method: :delete %></div></li>
+    <li><strong><%= user.name %>: </strong><%= user.key %><br><div class="btn btn-warning" role = "alert"><%= link_to "Delete API Key", user , method: :delete %></div></li>
 <% end %>
   <% end %>
-
 <% else %>
-<%= @user.name %>, API KEY = <%= @user.key %>
+   </div>
+ </div>
+</div>
+  
 
-
-      
-<% if is_logged_in? %>
-      <% if @user.key %>
-        <div class="alert alert-danger" role = "alert"><%= link_to "Delete API Key", @user, method: :delete %></div>
+<div class = "col-md-5">
+<div class = "panel panel-info">
+  <div class = "panel-heading">
+    <h3>Kontoinformation</h3>
+  </div>
+  <div class = "panel-body">
+    <strong>API KEY</strong> = <%= @user.key %>
+</div>
+  <div class = "panel-footer">
+    <% if @user.key %>
+        <div class="btn btn-warning" role = "alert"><%= link_to "Delete API Key", @user, method: :delete %></div>
       <% else %> 
-        <div class="alert alert-info"role = "alert"> <%= link_to "Generate API Key", @user, method: :post %></div>
+        <div class="btn btn-info" role = "alert"> <%= link_to "Generate API Key", @user, method: :post %></div>
       <% end %>
-<% end %>
+  </div>
+  </div>
+  </div>
 <% end %>

@@ -13,17 +13,17 @@
       <li><%= msg %></li>
     <% end %>
       
-      
-      <% if is_logged_in? %>
-      <div class="alert alert-success" role = "alert">Logged in as <%= current_user.name %> </div>
-      <%= link_to "Log out", logout_path %>
-      <% end %>
-      
-      
+      <div class = "jumbotron">
+        <h1>Välkommen 
+        <% if is_logged_in? %>
+      <%= current_user.name %></h1>
+      <div><%= link_to "Log out", logout_path, class: "btn btn-danger" %></div>
+        <% else %>
+        till API Registreringen
+        <% end %>
+        <h4></h4>
+      </div>
       <%= yield %> 
-      <%= debug(params) if Rails.env.development? %>
     </div>
-  
-  
 </body>
 </html>
