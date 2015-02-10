@@ -1,16 +1,22 @@
 # Lab3_Ramverk
-Repositorie för laboration3 i kursen webramverk
+Repositorie för laboration3 i kursen webramverk för använde JH222VP
 
 ##Installationsanvisningar
-Kör boundle install för att få bcrypt
+1. Kör boundle install för att få bcrypt
 
 Antingen kör du en 
-"Rake db:setup" color="red"
+2. "Rake db:setup"
 eller så kör du
-rake db:migrate color="red"
-för att få upp datorbasen
+2. "rake db:migrate" för att få upp datorbasen
 
 Sen för att trycka in de förvalda adminuppgifterna så kör du:
-Rake db:seed color="red"
-så sätts nedanstående uppgifter
-Admin:password
+"Rake db:seed"
+
+
+Testkonto:
+User: Erik
+Password: 123456
+
+Adminkonto
+User: Admin
+Password: password
